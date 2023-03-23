@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create and Use HTML Form</title>
+</head>
+
+<body>
+    <h2>การสร้างและใช้งานฟอร์มสำหรับรับข้อมูล</h2>
+    <hr>
+    <form action="">
+        <label for="firstname">ชื่อ</label>
+        <input id="firstname" name="firstname" type="text" placeholder="ชื่อจริง">
+
+        <label for="lastname">นามสกุล</label>
+        <input id="lastname" name="lastname" type="text" placeholder="นามสกุล">
+        <hr>
+        <label for="password">รหัสผ่าน</label>
+        <input id="password" name="password" type="password" placeholder="รหัสผ่าน">
+
+        <hr>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email">
+
+        <label for="age">อายุ</label>
+        <input id="age" name="age" type="number">
+        <br><br>
+        <label for="birthdate">วัน เดือน ปีเกิด</label>
+        <input id="birthdate" name="birthdate" type="date">
+        <label for="birthtime">เวลาเกิด</label>
+        <input id="birthtime" name="birthtime" type="time">
+
+        <label for="month">เวลาเกิด</label>
+        <input id="month" name="month" type="month">
+        <br><br>
+        <input id="male" name="gender" type="radio" value="m">
+        <label for="male">เพศชาย</label>
+
+        <input id="female" name="gender" type="radio" value="f">
+        <label for="female">เพศหญิง</label>
+
+        <p>ความสามารถ</p>
+        <input id="sport" name="talent[]" type="checkbox" value="sport">
+        <label for="sport">กีฬา</label>
+
+        <input id="learn" name="talent[]" type="checkbox" value="learn">
+        <label for="learn">วิชาการ</label>
+
+        <input id="sing" name="talent[]" type="checkbox" value="sing">
+        <label for="sing">ร้องเพลง</label>
+
+        <p>รูปโปรไฟล์</p>
+        <input name="image" type="file">
+
+        <p>จำนวนเงินที่มี</p>
+        <input name="mycash" type="range" min="0" max="100" value="0">
+
+        <p>Facebook ของฉัน</p>
+        <input name="myfacebook" type="url">
+
+        <p>รถของฉัน</p>
+        <select name="mycar" id="mycar">
+            <option value="bmw">BMW</option>
+            <option value="toyota">Toyota</option>
+            <option value="Honda">Honda</option>
+            <option value="Ford">Ford</option>
+        </select>
+
+        <p>ประวัติส่วนตัวคร่าวๆ</p>
+        <textarea name="resume" id="resume" cols="100" rows="20">
+        </textarea>
+
+        <br><br>
+        <input type="submit" value="ส่งข้อมูล">
+        <input type="reset" value="ล้างข้อมูล">
+    </form>
+</body>
+
+</html>
