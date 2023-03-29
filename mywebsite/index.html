@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script>
+        // <= ES5
+        function txtAlert() {
+            let txt = prompt('ไม่เปิดรับสมัคร คุณตกลงไหม? กรอกชื่อมา')
+            if (txt) {
+                alert('ขอบคุณครับ คุณ ' + txt)
+            } else {
+                alert('ว้าา แย่จัง ไม่บอกชื่อเลย')
+            }
+        }
+
+
+        // >= ES6
+        const txtAlert2 = () => {
+            let txt = prompt('คุณอยากได้เว็บไซต์ชื่ออะไร ? ....')
+            if (txt) {
+                document.getElementById('headText').innerHTML = txt
+            } else {
+                alert('ยกเลิก')
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1 id="headText">My Website</h1>
+        <p>สอนการสร้างเว็บไซต์ด้วย HTML & CSS</p>
+    </div>
+
+    <div class="topnav">
+        <a href="#">หน้าแรก</a>
+        <a href="#" onclick="txtAlert()">สมัครสมาชิก</a>
+        <a href="#" onclick="txtAlert2()">บทความ</a>
+        <a href="#">ข่าวสาร</a>
+        <a href="#" style="float: right;">เข้าสู่ระบบ</a>
+    </div>
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                <h2>ข่าวสารที่ 1</h2>
+                <h5>วันที่โพส : 29-03-2566</h5>
+                <img class="myImages" src="images/1.jpg" alt="">
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis quibusdam adipisci molestias itaque ipsam commodi.</p>
+            </div>
+            <div class="card">
+                <h2>ข่าวสารที่ 2</h2>
+                <h5>วันที่โพส : 29-03-2566</h5>
+                <img class="myImages" src="images/2.jpg" alt="">
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis quibusdam adipisci molestias itaque ipsam commodi.</p>
+            </div>
+        </div>
+
+        <div class="rightcolumn">
+            <div class="card">
+                <h2>เกี่ยวกับตัวฉัน</h2>
+                <img class="myImages" src="images/3.jpg" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, obcaecati.</p>
+            </div>
+            <div class="card">
+                <h3>โพสยอดฮิต</h3>
+                <img class="myImages" src="images/4.jpg" alt="">
+                <img class="myImages" src="images/5.jpg" alt="">
+                <img class="myImages" src="images/6.jpg" alt="">
+            </div>
+            <div class="card">
+                <h3>ติดตามฉันได้ที่</h3>
+                <a target="_new" href="https://www.facebook.com/pep.apichat">Facebook</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h4>ออกแบบโดย ห้องเรียน Web Programing By Pep Apichat</h4>
+    </div>
+
+</body>
+
+</html>
