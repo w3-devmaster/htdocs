@@ -1,0 +1,74 @@
+*{
+    box-sizing: border-box;
+}
+
+.mainDiv {
+    width: 50%;
+    border: 1px solid #555;
+    padding: 20px;
+    margin: 50px auto;
+    border-radius: 4px;
+    box-shadow: 1px 1px 4px #777;
+}
+
+.mainDiv table {
+    width: 100%;
+    text-align: left;
+}
+
+input[type=text],input[type=email],input[type=date] {
+    padding: 5px;
+    display: block;
+    width:100%;
+    border: 1px solid rgb(255, 190, 71);
+}
+
+textarea {
+    border: 1px solid rgb(255, 190, 71);
+    width: 100%;
+}
+
+select {
+    padding: 5px;
+    width: 50%;
+    border: 1px solid rgb(255, 190, 71);
+}
+
+input[type=submit] {
+    padding: 5px 30px;
+    border: 1px solid orange;
+    background-color: darkorange;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px #999;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(236, 130, 0);
+}
+
+h2 { 
+    text-align: center;
+}
+
+.success {
+    text-align: center;
+    color: green;
+
+}
+
+.error {
+    text-align: center;
+    color:darkred;
+}
+
+table.usersTable {
+    width: 100%;
+    border: 1px solid gray;
+    text-align: center;
+}
+
+
+
+
+
