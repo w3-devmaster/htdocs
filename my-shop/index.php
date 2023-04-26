@@ -61,7 +61,7 @@
                                     ?>
                             <li><a class="dropdown-item" href="./?page=dashboard">Dashboard</a></li>
                             <li><a class="dropdown-item" href="./?page=category">หมวดหมู่สินค้า</a></li>
-                            <li><a class="dropdown-item" href="#">จัดการสินค้า</a></li>
+                            <li><a class="dropdown-item" href="./?page=products">จัดการสินค้า</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
