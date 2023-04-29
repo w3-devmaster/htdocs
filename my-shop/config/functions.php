@@ -12,4 +12,18 @@ function getAdmin( $sql, $user )
 
     return false;
 }
+
+function getCategoryName( $sql, $cat_id )
+{
+    $result = $sql->query( "select * from categories where id = $cat_id " );
+
+    $row = $result->fetch_assoc();
+
+    return $row['category_name'];
+}
+
+function chkSelect( $pc_id, $cat_id )
+{
+    return $pc_id == $cat_id ? 'selected' : '';
+}
 ?>
