@@ -1,9 +1,9 @@
 <?php
-    $result = $sql->query( "select * from products where hots = 1 order by id" );
+    $result = $sql->query( "select * from products order by id" );
 ?>
-<h3>หน้าแรก</h3>
+
 <hr>
-<p>สินค้ายอดฮิต</p>
+<p>สินค้าทั้งหมด</p>
 <div class="row">
     <?php
         while ( $row = $result->fetch_assoc() )

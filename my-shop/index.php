@@ -34,7 +34,7 @@
                         <a class="nav-link active" aria-current="page" href="./">หน้าแรก</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">สินค้าทั้งหมด</a>
+                        <a class="nav-link" href="./?page=all_products">สินค้าทั้งหมด</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -42,6 +42,9 @@
                         if ( empty( $_SESSION['user_login'] ) )
                         {
                         ?>
+                    <li class="nav-item">
+                        <a href="?page=register" class="nav-link">ลงทะเบียน</a>
+                    </li>
                     <li class="nav-item">
                         <a href="?page=login" class="nav-link">เข้าสู่ระบบ</a>
                     </li>

@@ -34,7 +34,26 @@
     ?>
 <h3 class="mt-3">สินค้าทั้งหมด</h3>
 <hr>
-<a class="btn btn-success btn-sm" href="./?page=add_product">เพิ่มข้อมูลสินค้า</a>
+<a class="btn btn-success btn-sm mb-3" href="./?page=add_product">เพิ่มข้อมูลสินค้า</a>
+<?php
+    if ( isset( $_SESSION['alert'] ) )
+        {
+        ?>
+<div class="alert alert-<?=$_SESSION['alert']['mode']?>"><?=$_SESSION['alert']['msg']?></div>
+<?php
+    unset( $_SESSION['alert'] );
+        }
+    ?>
+<script>
+const confirmDelete = (pid) => {
+    let conf = confirm('ต้องการลบข้อมูลนี้หรือไม่ ?')
+    if (conf == true) {
+        window.location.href = "./backend/del_product.php?pid=" + pid
+    }
+    return false
+}
+</script>
+
 <table class="table table-striped table-bordered mt-3 text-center">
     <thead>
         <tr>
@@ -58,6 +77,7 @@
             <td>
                 <a class="btn btn-primary btn-sm" href="./?page=products&pid=<?=$row['id']?>">ดูสินค้า</a>
                 <a class="btn btn-warning btn-sm" href="./?page=edit_product&pid=<?=$row['id']?>">แก้ไขสินค้า</a>
+                <button class="btn btn-danger btn-sm" onclick="confirmDelete('<?=$row['id']?>')">ลบสินค้า</button>
             </td>
         </tr>
         <?php

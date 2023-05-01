@@ -22,6 +22,10 @@ if ( !empty( $_SESSION['user_login'] ) )
             if ( $image['error'] == 0 )
             {
 
+                $p_result  = $sql->query( "select * from products where id = $pid limit 1" );
+                $row       = $p_result->fetch_assoc();
+                $old_image = $row['image'];
+
                 if ( $image['type'] == 'image/jpeg' || $image['type'] == 'image/png' || $image['type'] == 'image/jpg' )
                 {
                     $size = ( $image['size'] / 1024 / 1024 ); //  MB
@@ -38,6 +42,8 @@ if ( !empty( $_SESSION['user_login'] ) )
                         if ( move_uploaded_file( $image['tmp_name'], $save_upload ) )
                         {
                             $result = $sql->query( "update products set product_name = '$product_name' , product_desc = '$product_desc' , price = $price , category_id = $category_id , image = '$save_dir' , hots = $hots where id = $pid " );
+
+                            unlink( '../' . $old_image );
 
                             $_SESSION['alert'] = ['mode' => 'success', 'msg' => 'บันทึกข้อมูลเสร็จสิ้น'];
                             header( 'location: ../?page=edit_product&pid=' . $pid );
