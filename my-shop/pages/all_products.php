@@ -16,7 +16,8 @@
                 <h5 class="card-title"><?=$row['product_name']?></h5>
                 <p class="card-text"><?=$row['product_desc']?></p>
                 <p class="card-text">ราคาสินค้า : <?=number_format( $row['price'], 2 )?> ฿</p>
-                <a href="#" class="btn btn-primary">ซื้อ</a>
+                <a href="" class="btn btn-primary">ซื้อ</a>
+                <a href="./?page=cart&pid=<?=$row['id']?>" class="btn btn-success">ใส่ตะกร้า</a>
             </div>
         </div>
     </div>

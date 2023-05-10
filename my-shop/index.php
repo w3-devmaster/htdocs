@@ -36,6 +36,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./?page=all_products">สินค้าทั้งหมด</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./?page=cart">ตะกร้าสินค้า</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <?php

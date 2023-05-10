@@ -26,4 +26,13 @@ function chkSelect( $pc_id, $cat_id )
 {
     return $pc_id == $cat_id ? 'selected' : '';
 }
+
+function getProduct( $sql, $pid )
+{
+    $result = $sql->query( "select * from products where id = $pid " );
+
+    $row = $result->fetch_assoc();
+
+    return $row;
+}
 ?>
