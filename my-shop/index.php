@@ -76,7 +76,7 @@
                                     else
                                     {
                                     ?>
-                            <li><a class="dropdown-item" href="#">ประวัติการสั่งซื้อ</a></li>
+                            <li><a class="dropdown-item" href="./?page=order_list">ประวัติการสั่งซื้อ</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -95,23 +95,32 @@
     </nav>
     <div class="container-md">
         <?php
-            if ( isset( $_GET['page'] ) )
+            if ( isset( $_SESSION['alert'] ) )
             {
-                $path = 'pages/' . $_GET['page'] . '.php';
-                if ( file_exists( $path ) )
-                {
-                    include_once $path;
-                }
-                else
-                {
-                    include_once 'pages/home.php';
-                }
-            }
-            else
-            {
-                include_once 'pages/home.php';
+            ?>
+        <div class="alert alert-<?=$_SESSION['alert']['mode']?>"><?=$_SESSION['alert']['msg']?></div>
+        <?php
+            unset( $_SESSION['alert'] );
             }
         ?>
+<?php
+    if ( isset( $_GET['page'] ) )
+    {
+        $path = 'pages/' . $_GET['page'] . '.php';
+        if ( file_exists( $path ) )
+        {
+            include_once $path;
+        }
+        else
+        {
+            include_once 'pages/home.php';
+        }
+    }
+    else
+    {
+        include_once 'pages/home.php';
+    }
+?>
     </div>
 
 </body>

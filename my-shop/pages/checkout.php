@@ -1,7 +1,45 @@
 <?php
     if ( !empty( $_SESSION['user_login'] ) )
     {
-    ?>
+        if ( !empty( $_POST['checkout'] ) )
+        {
+            $address = trim( $_POST['address'] );
+            $phone   = $_POST['phone'];
+            $email   = trim( $_POST['email'] );
+
+            $products = $_SESSION['cart'];
+            $customer = $_SESSION['user_login'];
+
+            $order = $sql->query( "insert into orders (customer,address,phone,email) values ('$customer','$address','$phone','$email') " );
+
+            if ( $order )
+            {
+                $result   = $sql->query( "select * from orders order by id desc limit 1" );
+                $row      = $result->fetch_assoc();
+                $order_id = $row['id'];
+
+                foreach ( $products as $key => $value )
+                {
+                    $product = getProduct( $sql, $key );
+                    $price   = $product['price'];
+
+                    $sql->query( "insert into order_products (product_id,order_id,amount,price) values ($key,$order_id,$value,$price) " );
+                }
+
+                unset( $_SESSION['cart'] );
+
+                $_SESSION['alert'] = ['mode' => 'success', 'msg' => 'ทำการสั่งซื้อสินค้าสำเร็จ'];
+                header( 'location: ./' );
+            }
+            else
+            {
+                $_SESSION['alert'] = ['mode' => 'error', 'msg' => 'มีบางอย่างผิดพลาด'];
+                header( 'location: ./?page=checkout' );
+            }
+        }
+        else
+        {
+        ?>
 <h3 class="mt-3">ชำระค่าสินค้า</h3>
 <hr>
 <table class="table table-striped table-bordered text-center table-sm" style="font-size: 14px;">
@@ -17,14 +55,14 @@
     <tbody>
         <?php
             $sum = 0;
-                if ( !empty( $_SESSION['cart'] ) )
-                {
-                    $i = 1;
-                    foreach ( $_SESSION['cart'] as $key => $value )
+                    if ( !empty( $_SESSION['cart'] ) )
                     {
-                        $product = getProduct( $sql, $key );
-                        $sum += ( $product['price'] * $value );
-                    ?>
+                        $i = 1;
+                        foreach ( $_SESSION['cart'] as $key => $value )
+                        {
+                            $product = getProduct( $sql, $key );
+                            $sum += ( $product['price'] * $value );
+                        ?>
         <tr>
             <td class="align-middle"><?=$i?></td>
             <td class="align-middle">
@@ -37,9 +75,9 @@
         </tr>
         <?php
             $i++;
+                        }
                     }
-                }
-            ?>
+                ?>
         <tr>
             <td colspan="3">รวมทั้งสิ้น</td>
             <td colspan="3"><?=number_format( $sum, 2 )?> บาท</td>
@@ -58,17 +96,18 @@
             </div>
             <div class="form-group form-group-sm mb-3">
                 <label for="phone">เบอร์โทร</label>
-                <input type="text" name="phone" id="phone" class="form-control" required>
+                <input oninput="if(this.value*1!=this.value){alert('กรุณากรอกตัวเลขเท่านั้น');this.value=''}" type="text" name="phone" id="phone" class="form-control" required maxlength="10">
             </div>
             <div class="form-group form-group-sm mb-3">
                 <label for="email">อีเมล</label>
-                <input type="text" name="email" id="email" class="form-control" requried>
+                <input type="text" name="email" id="email" class="form-control">
             </div>
-            <input class="btn btn-success" type="submit" value="ส่งข้อมูล">
+            <input name="checkout" class="btn btn-success" type="submit" value="ส่งข้อมูล">
         </form>
     </div>
 </div>
 <?php
+    }
     }
     else
     {
