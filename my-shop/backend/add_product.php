@@ -8,6 +8,7 @@ if ( !empty( $_SESSION['user_login'] ) )
 
     if ( getAdmin( $sql, $user ) )
     {
+   
         $product_name = trim( $_POST['product_name'] );
         $product_desc = trim( $_POST['product_desc'] );
         $price        = trim( $_POST['price'] );

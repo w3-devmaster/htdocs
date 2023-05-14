@@ -25,7 +25,9 @@
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow">
         <div class="container-md">
             <a class="navbar-brand" href="./">My Shop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -57,7 +59,8 @@
                         {
                         ?>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <?=$_SESSION['user_login']?>
                         </a>
                         <ul class="dropdown-menu">
@@ -103,7 +106,7 @@
             unset( $_SESSION['alert'] );
             }
         ?>
-<?php
+        <?php
     if ( isset( $_GET['page'] ) )
     {
         $path = 'pages/' . $_GET['page'] . '.php';
@@ -120,8 +123,10 @@
     {
         include_once 'pages/home.php';
     }
+   
 ?>
     </div>
+    <div class=""></div>
 
 </body>
 
