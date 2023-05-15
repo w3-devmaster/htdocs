@@ -66,4 +66,12 @@ function getOrderStatus( $status )
 
     return $stat;
 }
+
+function getUserName($sql,$username) {
+    $result = $sql->query("select * from users where username = '$username' limit 1");
+
+    $row = $result->fetch_assoc();
+
+    return $row['name'];
+}
 ?>

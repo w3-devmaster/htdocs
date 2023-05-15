@@ -74,6 +74,12 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
+                            <li>
+                                <a class="dropdown-item" href="./?page=order_list_admin">รายการคำสั่งซื้อ</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <?php
                                 }
                                     else

@@ -1,6 +1,6 @@
 <?php
     $user   = $_SESSION['user_login'];
-    $result = $sql->query( "select * from orders where customer = '$user' order by order_date desc,status" );
+    $result = $sql->query( "select * from orders order by order_date desc,status" );
 ?>
 <div class="row">
     <div class="col-12 mt-3">
@@ -12,6 +12,7 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>ผู้ซื้อ</th>
                     <th>วันที่สั่งซื้อ</th>
                     <th>สถานะ</th>
                     <th>ดูรายการ</th>
@@ -25,6 +26,7 @@
                     ?>
                 <tr>
                     <td class="align-middle"><?=$i?></td>
+                    <td class="align-middle" ><?=$row['customer']?> (<?=getUserName($sql,$row['customer'])?>)</td>
                     <td class="align-middle">
                         <?=date( 'วันที่ d M', strtotime( $row['order_date'] ) )?>
                         <?=date( 'Y', strtotime( $row['order_date'] ) ) + 543?>
@@ -32,7 +34,7 @@
                     </td>
                     <td class="align-middle"><?=getOrderStatus( $row['status'] )?></td>
                     <td class="align-middle">
-                        <a class="btn btn-info btn-sm" href="./?page=view_order&oid=<?=$row['id']?>">ดูข้อมูล</a>
+                        <a class="btn btn-info btn-sm" href="./?page=view_order_admin&oid=<?=$row['id']?>">ดูข้อมูล</a>
                     </td>
                 </tr>
                 <?php
